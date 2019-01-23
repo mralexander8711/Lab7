@@ -1,0 +1,23 @@
+package gcdemos;
+
+import java.util.Scanner;
+
+public class RegexEx {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		String input;
+		do {
+			input =scan.next();
+			boolean valid =input.matches("[[a-zA-Z_$][\\w$]*");
+			
+			System.out.println(valid ? "Valid!":"Invalid :(");
+		}while (!input.isEmpty());
+		
+		System.out.println("Thanks for playing");
+		
+		scan.close();
+	}
+	
+}

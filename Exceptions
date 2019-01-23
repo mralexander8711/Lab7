@@ -1,23 +1,54 @@
-package gcdemos;
-
 import java.util.Scanner;
-
-public class RegexEx {
-
+public class Lab7 {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
+		
+		Scanner snca = new Scanner(System.in);
 		
 		String input;
 		do {
-			input =scan.next();
-			boolean valid =input.matches("[[a-zA-Z_$][\\w$]*");
-			
-			System.out.println(valid ? "Valid!":"Invalid :(");
-		}while (!input.isEmpty());
-		
-		System.out.println("Thanks for playing");
-		
-		scan.close();
-	}
+			System.out.println("Please Enter A Valid Name:");
+			input = snca.next();
+			System.out.println(valid(input)? "": "Sorry,name is not valid!" );
+		}while(!valid(input));	
 	
+		{}		
+			//enter valid email
+		do{
+			System.out.println("Please Enter A Valid Email");
+			input =snca.next();
+			boolean validEmail= validEmail(input);
+			System.out.println(validEmail ? "":"Sorry, This is a Invalid Email");
+		}while(!validEmail(input));
+			
+		//Enter Valid phone
+		do {
+			System.out.println("Please Enter A Valid Phone");
+			input= snca.next();
+			boolean validPhone= validPhone(input);
+			System.out.println(validPhone? "":"Opps, This isn't a Invalid Phone");
+		}while(!validPhone(input));
+		
+		//Enter Valid Date
+		do{		
+			System.out.println("Please Enter A Valid Birth Date mm/dd/yyy");
+			input=snca.next();
+			boolean validDate= validDate(input);
+			
+		}while(!validDate(input));
+		 
+		System.out.println("Your infomation has been entered");
+		snca.close();
+		
+		
+		}private static boolean valid(String input) {
+			return (input.matches("[A-Z][a-zA-z]*"));
+			  
+		}private static boolean validEmail(String input) {
+			return (input.matches("[a-zA-Z$_0-9]{5,30}@[a-zA-Z]{5,10}.[a-zA-Z]{2,3}"));
+		
+		}private static boolean validPhone(String input) {
+			return (input.matches("[0-9]{3}[-,.]?[0-9]{3}[-,.]?[0-9]{4}"));
+	    }private static boolean validDate(String input) {
+			return (input.matches("[0-9]{1,2}/[0-9]{1,2}/[0-9]{2,4}"));
+	    }
 }
